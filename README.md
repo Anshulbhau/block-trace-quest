@@ -40,4 +40,4 @@ Revolutionary blockchain-powered product authentication platform that prevents f
 
 ---
 
-*Built with ❤️ using Lovable*
+
