@@ -1,73 +1,43 @@
-# Welcome to your Lovable project
+# BlockTrace - Blockchain Product Authentication
 
-## Project info
+Revolutionary blockchain-powered product authentication platform that prevents fake products through QR codes and immutable blockchain verification.
 
-**URL**: https://lovable.dev/projects/22dabd0c-89f2-44ec-bc7f-0ae208c7357d
+## 🚀 Features
 
-## How can I edit this code?
+- **Blockchain Security**: Every product registered on immutable blockchain
+- **Smart QR Codes**: Unique QR codes with encrypted blockchain links
+- **Real-Time Analytics**: Track scans and monitor product journey
+- **Multi-Role Access**: Dashboards for manufacturers, distributors, retailers, consumers
+- **Mobile-First Verification**: Instant product authenticity checking
+- **Supply Chain Traceability**: Complete product journey tracking
 
-There are several ways of editing your application.
+## 🎯 Core Functionality
 
-**Use Lovable**
+- Product registration with blockchain storage
+- QR code generation with custom branding
+- Mobile-optimized verification interface
+- Interactive trace timeline with animations
+- Role-based authentication system
+- Real-time scan analytics and reporting
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/22dabd0c-89f2-44ec-bc7f-0ae208c7357d) and start prompting.
+## 🛠 Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Frontend**: React 18 + TypeScript + Vite
+- **UI**: TailwindCSS + Shadcn/UI components
+- **Styling**: Custom design system with glassmorphism effects
+- **QR Codes**: qr-code-styling + html5-qrcode
+- **Animations**: CSS keyframes + Tailwind animations
+- **Icons**: Lucide React
+- **Routing**: React Router DOM
 
-**Use your preferred IDE**
+## 🎨 Design System
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **Theme**: Blockchain-inspired dark theme with cyan accents
+- **Colors**: HSL-based semantic tokens
+- **Effects**: Glassmorphism cards, gradient animations
+- **Typography**: Inter font with modern hierarchy
+- **Responsive**: Mobile-first design approach
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/22dabd0c-89f2-44ec-bc7f-0ae208c7357d) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+*Built with ❤️ using Lovable*
