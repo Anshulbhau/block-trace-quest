@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useSearchParams, useNavigate } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -93,30 +94,62 @@ export default function Auth() {
     setIsLoading(true);
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-
       if (mode === "register") {
+        // Validate passwords match
         if (formData.password !== formData.confirmPassword) {
           throw new Error("Passwords don't match");
         }
         if (!selectedRole) {
           throw new Error("Please select your role");
         }
+
+        // Sign up with Supabase
+        const { data, error } = await supabase.auth.signUp({
+          email: formData.email,
+          password: formData.password,
+          options: {
+            emailRedirectTo: `${window.location.origin}/dashboard`,
+            data: {
+              full_name: formData.fullName,
+              company: formData.company || null,
+              role: selectedRole
+            }
+          }
+        });
+
+        if (error) throw error;
+
+        if (data?.user) {
+          toast({
+            title: "Account created successfully!",
+            description: "Please check your email to verify your account before signing in."
+          });
+          // Switch to login mode after successful signup
+          setMode("login");
+          setFormData(prev => ({ ...prev, password: "", confirmPassword: "" }));
+        }
+      } else {
+        // Sign in with Supabase
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email: formData.email,
+          password: formData.password
+        });
+
+        if (error) throw error;
+
+        if (data?.user) {
+          toast({
+            title: "Welcome back!",
+            description: "You've been signed in successfully."
+          });
+          // Redirect to dashboard
+          navigate("/dashboard", { replace: true });
+        }
       }
-
-      // Simulate successful authentication
-      toast({
-        title: mode === "login" ? "Welcome back!" : "Account created successfully!",
-        description: mode === "login" ? "You've been signed in." : "You can now start using BlockTrace."
-      });
-
-      // Redirect to dashboard
-      navigate("/dashboard", { replace: true });
-    } catch (error) {
+    } catch (error: any) {
       toast({
         title: "Authentication failed",
-        description: error instanceof Error ? error.message : "Something went wrong. Please try again.",
+        description: error.message || "Something went wrong. Please try again.",
         variant: "destructive"
       });
     } finally {
